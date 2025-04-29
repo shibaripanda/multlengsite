@@ -1,6 +1,8 @@
+import { defaultLeng, lengList } from "./leng.config";
+
 const config = {
-    locales: ['en', 'ru'],
-    defaultLocale: 'en',
+    locales: lengList,
+    defaultLocale: defaultLeng,
   };
   
   export default config;

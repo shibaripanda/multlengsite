@@ -9,11 +9,9 @@ export default function Page() {
 
   const [viewApp, setViewApp] = useState(false)
   const t = useTranslations()
-  // console.log(process.env.NEXT_LINK_DEMO_APP)
 
   return (
     <>
-      {/* iframe на фоне */}
       <Box
         component="iframe"
         src={process.env.NEXT_PUBLIC_LINK_DEMO_APP}
@@ -28,7 +26,6 @@ export default function Page() {
         }}
       />
 
-      {/* затемнение + размытие, только если не свернуто */}
       {!viewApp && (
         <Box
           style={{
@@ -44,7 +41,6 @@ export default function Page() {
         />
       )}
 
-      {/* MainPage с анимацией */}
       <Box
         style={{
           position: 'fixed',

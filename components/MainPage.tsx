@@ -1,3 +1,5 @@
+'use client';
+
 import cx from 'clsx';
 import { Button, Container, Text, Title } from '@mantine/core';
 import classes from './MainPage.module.css';
@@ -28,7 +30,10 @@ export function MainPage({t, setViewApp}: any) {
           {t('buttonGetStarted')} 
           </Button>
           <Button className={cx(classes.control, classes.secondaryControl)} size="lg"
-          onClick={() => setViewApp(true)}>
+          onClick={() => {
+            console.log('sssssssssssssssssssssssssssssssssss')
+            setViewApp(true)
+            }}>
             {t('buttonTry')}
           </Button>
         </div>
