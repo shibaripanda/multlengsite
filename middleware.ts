@@ -15,6 +15,10 @@ export function middleware(request: NextRequest) {
     return new Response(null, { status: 204 })
   }
 
+  // if (url.includes('sitemap.xml')) {
+  //   return NextResponse.next()
+  // }
+
   return lengWorker(request)
 }
 

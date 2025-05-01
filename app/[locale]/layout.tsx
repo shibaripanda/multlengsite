@@ -10,19 +10,15 @@ import { lengList } from '../../leng.config';
 // };
 type Props = {
   params: { locale: string }
-  searchParams: { [key: string]: string | string[] | undefined }
+  // searchParams: { [key: string]: string | string[] | undefined }
 }
 
 export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata
+  { params }: any,
+  // parent: ResolvingMetadata
 ): Promise<Metadata> {
 
   const { locale } = await params
-  // console.log(locale)
-  // const { title, description } = await parent
-  // const { title, description } = await parent
-  // console.log(title, description)
   const seo = await import(`../../seo/${locale}.json`).then((m) => m.default);
 
   const languagesUrlList = (lengList: string[]) => {
