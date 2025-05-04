@@ -8,7 +8,6 @@ import {
 import { theme } from "../theme";
 import './globals.css'
 import { Inter } from 'next/font/google'
-import { dataLengs } from "../l";
 import * as fs from 'fs';
 import { getLenguagesFromAI } from "../utils/lengPackUpdate";
 
