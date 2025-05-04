@@ -8,6 +8,9 @@ import {
 import { theme } from "../theme";
 import './globals.css'
 import { Inter } from 'next/font/google'
+import { dataLengs } from "../l";
+import * as fs from 'fs';
+import { getLenguagesFromAI } from "../utils/lengPackUpdate";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -22,6 +25,9 @@ const inter = Inter({
 // };
 
 export default function RootLayout({ children }: { children: any }) {
+
+  // getLenguagesFromAI()
+
   return (
     <html lang="en" {...mantineHtmlProps} className={inter.variable}>
       <head>

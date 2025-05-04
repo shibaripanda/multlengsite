@@ -15,14 +15,16 @@ export function middleware(request: NextRequest) {
     return new Response(null, { status: 204 })
   }
 
-  // if (url.includes('sitemap.xml')) {
-  //   return NextResponse.next()
-  // }
-
   return lengWorker(request)
 }
 
 export const config = {
-  // matcher: ['/'].concat(lengList.map(item => ('/' + item)))
-  matcher: ['/', '/en', '/ru'], // lengList !!!
+  matcher: ['/',
+    '/ru', '/en', '/es', '/fr', '/pt',
+    '/de', '/zh', '/it', '/ja', '/ko',
+    '/ar', '/hi', '/he', '/tr', '/vi',
+    '/nl', '/pl', '/id', '/sv', '/cs',
+    '/uk', '/hu', '/th', '/el', '/da',
+    '/fi', '/ro', '/sk', '/be'
+  ]
 };

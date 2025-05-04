@@ -1,32 +1,21 @@
 import { ReactNode } from 'react';
 import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
-import { Metadata, ResolvingMetadata } from 'next';
+import { Metadata } from 'next';
 import { lengList } from '../../leng.config';
-
-// export const metadata: Metadata = {
-//   title: "Mantine Next.js template",
-//   description: "I am using Mantine with Next.js!",
-// };
-type Props = {
-  params: { locale: string }
-  // searchParams: { [key: string]: string | string[] | undefined }
-}
 
 export async function generateMetadata(
   { params }: any,
-  // parent: ResolvingMetadata
 ): Promise<Metadata> {
 
   const { locale } = await params
-  const seo = await import(`../../seo/${locale}.json`).then((m) => m.default);
+  const seo = await import(`../../seo/${locale}.json`).then((m) => m.default)
 
   const languagesUrlList = (lengList: string[]) => {
     let res: {[key: string]: string} = {}
     for(const i of lengList){
       res[i] = process.env.NEXT_PUBLIC_LINK + `/${i}`
     }
-    // console.log(res)
     return res
   }
  
@@ -42,7 +31,7 @@ export async function generateMetadata(
     },
     alternates: {
       canonical: process.env.NEXT_PUBLIC_LINK + `/${locale}`,
-      languages: languagesUrlList(['ru', 'en']),
+      languages: languagesUrlList(lengList),
     },
   }
 }
@@ -60,8 +49,7 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  const messages = await import(`../../locales/${locale}.json`).then((m) => m.default);
-  // console.log(messages)
+  const messages = await import(`../../locales/${locale}.json`).then((m) => m.default)
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
